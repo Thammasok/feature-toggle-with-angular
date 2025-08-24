@@ -21,10 +21,4 @@ export class ComponentDemo {
   onButtonClick() {
     console.log('Button was clicked!');
   }
-
-  toggleFeature(component: string) {
-    const components = this.featureToggleService.getAllComponents();
-    const currentValue = components[component as keyof typeof components];
-    console.log(`Toggling ${component} to ${!currentValue}`);
-  }
 }
