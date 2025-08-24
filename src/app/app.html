@@ -64,7 +64,6 @@
 
 <div class="app">
   <header>
-    <h1>Feature Toggle Demo</h1>
     <nav>
       <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
       <a routerLink="/settings" routerLinkActive="active" *appFeatureToggle="'settings'">Settings</a>
@@ -75,6 +74,7 @@
   </header>
   
   <main>
+    <h1>Feature Toggle Demo</h1>
     <router-outlet></router-outlet>
   </main>
   
