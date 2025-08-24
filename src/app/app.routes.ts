@@ -29,7 +29,7 @@ export const routes: Routes = [
   {
     path: 'components',
     loadComponent: () => import('./pages/components/component-demo').then((m) => m.ComponentDemo),
-    canActivate: [() => featureToggleGuard('componentToggleDemo')],
+    canActivate: [() => featureToggleGuard('components')],
   },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: '**', redirectTo: '/dashboard' },

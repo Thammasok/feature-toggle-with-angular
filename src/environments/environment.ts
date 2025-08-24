@@ -5,7 +5,7 @@ export const environment = {
     settings: false,
     reports: true,
     analytics: false,
-    componentToggleDemo: true,
+    components: true,
   },
   components: {
     newCardDesign: true,

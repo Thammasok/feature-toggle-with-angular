@@ -70,7 +70,7 @@
       <a routerLink="/settings" routerLinkActive="active" *appFeatureToggle="'settings'">Settings</a>
       <a routerLink="/reports" routerLinkActive="active" *appFeatureToggle="'reports'">Reports</a>
       <a routerLink="/analytics" routerLinkActive="active" *appFeatureToggle="'analytics'">Analytics</a>
-      <a routerLink="/components" routerLinkActive="active" *appFeatureToggle="'componentToggleDemo'">Components</a>
+      <a routerLink="/components" routerLinkActive="active" *appFeatureToggle="'components'">Components</a>
     </nav>
   </header>
   
@@ -79,11 +79,16 @@
   </main>
   
   <footer>
-    <div *appFeatureToggle="'dashboard'">
-      <h3>Enabled Features:</h3>
-      <ul class="feature-list">
-        <li *ngFor="let feature of enabledFeatures">{{feature}}</li>
-      </ul>
+    <div class="feature-section">
+      <h2>Enabled Features:</h2>
+      <div class="feature-flags">
+        <div *ngFor="let feature of featureToggleService.getAllFeatures() | keyvalue" class="flag-item">
+          <span class="flag-name">{{ feature.key }}:</span>
+          <span class="flag-value" [class.enabled]="feature.value">
+            {{ feature.value ? 'Enabled' : 'Disabled' }}
+          </span>
+        </div>
+      </div>
     </div>
   </footer>
 </div>

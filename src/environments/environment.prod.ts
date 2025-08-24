@@ -5,8 +5,10 @@ export const environment = {
     settings: false,
     reports: true,
     analytics: false,
-    // New feature flags for our components
-    newCardDesign: false, // Default to false in production
-    newButtonDesign: false, // Default to false in production
+    components: true,
+  },
+  components: {
+    newCardDesign: true,
+    newButtonDesign: false,
   },
 };

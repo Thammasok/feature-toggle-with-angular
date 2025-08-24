@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { FeatureToggleDirective } from './shared/directives/feature-toggle.directive';
-import { FeatureToggleService, FeatureName } from './core/services/feature-toggle.service';
+import { FeatureToggleService } from './core/services/feature-toggle.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,7 @@ import { FeatureToggleService, FeatureName } from './core/services/feature-toggl
 export class App {
   enabledFeatures: string[] = [];
 
-  constructor(private featureToggleService: FeatureToggleService) {
+  constructor(public featureToggleService: FeatureToggleService) {
     // Get all features and filter enabled ones
     const allFeatures = this.featureToggleService.getAllFeatures();
     this.enabledFeatures = Object.entries(allFeatures)

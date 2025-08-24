@@ -1,12 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 
-export type FeatureName =
-  | 'dashboard'
-  | 'settings'
-  | 'reports'
-  | 'analytics'
-  | 'componentToggleDemo';
+export type FeatureName = 'dashboard' | 'settings' | 'reports' | 'analytics' | 'components';
 
 export type ComponentName = 'newCardDesign' | 'newButtonDesign';
 
