@@ -26,6 +26,12 @@ export const routes: Routes = [
       import('./components/analytics/analytics.component').then((m) => m.AnalyticsComponent),
     canActivate: [() => featureToggleGuard('analytics')],
   },
+  {
+    path: 'components',
+    loadComponent: () =>
+      import('./pages/component-toggle/component-toggle-demo').then((m) => m.ComponentToggleDemo),
+    canActivate: [() => featureToggleGuard('componentToggleDemo')],
+  },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: '**', redirectTo: '/dashboard' },
 ];

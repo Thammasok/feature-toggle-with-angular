@@ -1,0 +1,27 @@
+<!-- New Button Design -->
+ @if (showNewDesign) {
+    <button 
+        class="btn new-btn" 
+        [class.primary]="type === 'primary'"
+        [class.secondary]="type === 'secondary'"
+        [class.danger]="type === 'danger'"
+        [disabled]="disabled"
+        (click)="onClick()">
+  <span class="btn-content">
+    <span class="btn-text">{{ label }}</span>
+    <span class="btn-arrow">→</span>
+  </span>
+</button>
+}
+<!-- Old Button Design -->
+ @else {
+    <button 
+        class="btn old-btn" 
+        [class.primary]="type === 'primary'"
+        [class.secondary]="type === 'secondary'"
+        [class.danger]="type === 'danger'"
+        [disabled]="disabled"
+        (click)="onClick()">
+  {{ label }}
+</button>
+ }  

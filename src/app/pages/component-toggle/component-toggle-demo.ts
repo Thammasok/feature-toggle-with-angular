@@ -1,0 +1,30 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FeatureCardComponent } from '../../components/feature-card/feature-card';
+import { VersionedButtonComponent } from '../../components/versioned-button/versioned-button';
+import { FeatureToggleService } from '../../core/services/feature-toggle.service';
+
+@Component({
+  selector: 'app-feature-toggle-demo',
+  standalone: true,
+  imports: [CommonModule, FeatureCardComponent, VersionedButtonComponent],
+  templateUrl: './component-toggle-demo.html',
+  styleUrls: ['./component-toggle-demo.scss'],
+})
+export class ComponentToggleDemo {
+  cardTitle = 'Component Toggle Demo';
+  cardContent =
+    'This card demonstrates how to use feature toggles to switch between different component versions.';
+
+  constructor(public featureToggleService: FeatureToggleService) {}
+
+  onButtonClick() {
+    console.log('Button was clicked!');
+  }
+
+  toggleFeature(component: string) {
+    const components = this.featureToggleService.getAllComponents();
+    const currentValue = components[component as keyof typeof components];
+    console.log(`Toggling ${component} to ${!currentValue}`);
+  }
+}

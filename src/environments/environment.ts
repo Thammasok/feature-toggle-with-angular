@@ -5,5 +5,10 @@ export const environment = {
     settings: false,
     reports: true,
     analytics: false,
+    componentToggleDemo: true,
+  },
+  components: {
+    newCardDesign: true,
+    newButtonDesign: false,
   },
 };

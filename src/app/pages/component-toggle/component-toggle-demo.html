@@ -1,0 +1,68 @@
+<div class="demo-container">
+  <h1>Component Toggle Demo</h1>
+  
+  <div class="feature-section">
+    <h2>Card Component</h2>
+    <div class="toggle-control">
+      <button (click)="toggleFeature('newCardDesign')">
+        {{ featureToggleService.isComponentEnabled('newCardDesign') ? 'Disable' : 'Enable' }} New Card Design
+      </button>
+      <span class="status">
+        Current: {{ featureToggleService.isComponentEnabled('newCardDesign') ? 'New Design' : 'Old Design' }}
+      </span>
+    </div>
+    
+    <div class="component-demo">
+      <app-feature-card 
+        [title]="cardTitle"
+        [content]="cardContent">
+      </app-feature-card>
+    </div>
+  </div>
+
+  <div class="feature-section">
+    <h2>Button Component</h2>
+    <div class="toggle-control">
+      <button (click)="toggleFeature('newButtonDesign')">
+        {{ featureToggleService.isComponentEnabled('newButtonDesign') ? 'Disable' : 'Enable' }} New Button Design
+      </button>
+      <span class="status">
+        Current: {{ featureToggleService.isComponentEnabled('newButtonDesign') ? 'New Design' : 'Old Design' }}
+      </span>
+    </div>
+    
+    <div class="component-demo">
+      <app-versioned-button
+        label="Click Me!"
+        [type]="'primary'"
+        (clicked)="onButtonClick()">
+      </app-versioned-button>
+      
+      <app-versioned-button
+        label="Secondary Action"
+        [type]="'secondary'"
+        (clicked)="onButtonClick()"
+        class="button-spacing">
+      </app-versioned-button>
+      
+      <app-versioned-button
+        label="Danger Zone"
+        [type]="'danger'"
+        (clicked)="onButtonClick()"
+        class="button-spacing">
+      </app-versioned-button>
+    </div>
+  </div>
+  
+  <div class="feature-section">
+    <h2>Current Feature Flags</h2>
+    <div class="feature-flags">
+      <div *ngFor="let feature of featureToggleService.getAllComponents() | keyvalue" class="flag-item">
+        <span class="flag-name">{{ feature.key }}:</span>
+        <span class="flag-value" [class.enabled]="feature.value">
+          {{ feature.value ? 'Enabled' : 'Disabled' }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
