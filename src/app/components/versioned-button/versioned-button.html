@@ -1,27 +1,27 @@
 <!-- New Button Design -->
  @if (showNewDesign) {
     <button 
-        class="btn new-btn" 
+        class="btn btn-new" 
         [class.primary]="type === 'primary'"
         [class.secondary]="type === 'secondary'"
         [class.danger]="type === 'danger'"
         [disabled]="disabled"
         (click)="onClick()">
-  <span class="btn-content">
-    <span class="btn-text">{{ label }}</span>
-    <span class="btn-arrow">→</span>
-  </span>
-</button>
+      <span class="btn-content">
+        <span class="btn-text">{{ label }}</span>
+        <span class="btn-arrow">→</span>
+      </span>
+    </button>
 }
 <!-- Old Button Design -->
  @else {
     <button 
-        class="btn old-btn" 
+        class="btn btn-old" 
         [class.primary]="type === 'primary'"
         [class.secondary]="type === 'secondary'"
         [class.danger]="type === 'danger'"
         [disabled]="disabled"
         (click)="onClick()">
-  {{ label }}
-</button>
+      {{ label }}
+    </button>
  }  

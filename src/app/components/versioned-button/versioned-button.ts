@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FeatureToggleService, FeatureName } from '../../core/services/feature-toggle.service';
+import { ComponentName, FeatureToggleService } from '../../core/services/feature-toggle.service';
 
 @Component({
   selector: 'app-versioned-button',
@@ -19,7 +19,7 @@ export class VersionedButtonComponent {
   constructor(private featureToggleService: FeatureToggleService) {
     // Check if the new button design feature is enabled
     this.showNewDesign =
-      this.featureToggleService.isFeatureEnabled('newButtonDesign' as FeatureName) ||
+      this.featureToggleService.isComponentEnabled('newButtonDesign' as ComponentName) ||
       this.showNewDesign;
   }
 

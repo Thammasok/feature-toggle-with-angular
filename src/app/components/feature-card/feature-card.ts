@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FeatureToggleService, FeatureName } from '../../core/services/feature-toggle.service';
+import { FeatureToggleService, ComponentName } from '../../core/services/feature-toggle.service';
 
 @Component({
   selector: 'app-feature-card',
@@ -17,7 +17,7 @@ export class FeatureCardComponent {
   constructor(private featureToggleService: FeatureToggleService) {
     // Check if the new card design feature is enabled
     this.showNewDesign =
-      this.featureToggleService.isFeatureEnabled('newCardDesign' as FeatureName) ||
+      this.featureToggleService.isComponentEnabled('newCardDesign' as ComponentName) ||
       this.showNewDesign;
   }
 
