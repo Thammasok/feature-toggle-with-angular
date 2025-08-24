@@ -5,13 +5,13 @@ import { VersionedButtonComponent } from '../../components/versioned-button/vers
 import { FeatureToggleService } from '../../core/services/feature-toggle.service';
 
 @Component({
-  selector: 'app-feature-toggle-demo',
+  selector: 'app-component-demo',
   standalone: true,
   imports: [CommonModule, FeatureCardComponent, VersionedButtonComponent],
-  templateUrl: './component-toggle-demo.html',
-  styleUrls: ['./component-toggle-demo.scss'],
+  templateUrl: './component-demo.html',
+  styleUrls: ['./component-demo.scss'],
 })
-export class ComponentToggleDemo {
+export class ComponentDemo {
   cardTitle = 'Component Toggle Demo';
   cardContent =
     'This card demonstrates how to use feature toggles to switch between different component versions.';

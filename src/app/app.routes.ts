@@ -5,31 +5,30 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     loadComponent: () =>
-      import('./components/dashboard/dashboard.component').then((m) => m.DashboardComponent),
+      import('./pages/dashboard/dashboard.component').then((m) => m.DashboardComponent),
     canActivate: [() => featureToggleGuard('dashboard')],
   },
   {
     path: 'settings',
     loadComponent: () =>
-      import('./components/settings/settings.component').then((m) => m.SettingsComponent),
+      import('./pages/settings/settings.component').then((m) => m.SettingsComponent),
     canActivate: [() => featureToggleGuard('settings')],
   },
   {
     path: 'reports',
     loadComponent: () =>
-      import('./components/reports/reports.component').then((m) => m.ReportsComponent),
+      import('./pages/reports/reports.component').then((m) => m.ReportsComponent),
     canActivate: [() => featureToggleGuard('reports')],
   },
   {
     path: 'analytics',
     loadComponent: () =>
-      import('./components/analytics/analytics.component').then((m) => m.AnalyticsComponent),
+      import('./pages/analytics/analytics.component').then((m) => m.AnalyticsComponent),
     canActivate: [() => featureToggleGuard('analytics')],
   },
   {
     path: 'components',
-    loadComponent: () =>
-      import('./pages/component-toggle/component-toggle-demo').then((m) => m.ComponentToggleDemo),
+    loadComponent: () => import('./pages/components/component-demo').then((m) => m.ComponentDemo),
     canActivate: [() => featureToggleGuard('componentToggleDemo')],
   },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },

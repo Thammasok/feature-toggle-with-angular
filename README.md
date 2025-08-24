@@ -1,38 +1,40 @@
 # Angular Feature Toggle Demo
 
-This project demonstrates a clean implementation of feature toggles in an Angular application. It allows you to enable or disable features without deploying new code, making it ideal for continuous delivery and A/B testing.
+This project demonstrates a clean implementation of feature toggles in an Angular application. It allows you to enable or disable features and components without deploying new code, making it ideal for continuous delivery, A/B testing, and gradual rollouts.
 
 ## Features
 
-- Dynamic feature toggles configuration
+- Dynamic feature and component toggles configuration
 - Route protection based on feature availability
-- Directive for conditional rendering in templates
+- Component versioning with feature toggles
 - Environment-based configuration for different deployment targets
+- Clean, maintainable architecture with lazy-loaded routes
 
 ## Project Structure
 
 ```
 src/
 ├── app/
-│   ├── components/           # Feature components
-│   │   ├── dashboard/       # Dashboard component (always visible)
-│   │   ├── settings/        # Settings component (feature-toggled)
-│   │   ├── reports/         # Reports component (feature-toggled)
-│   │   └── analytics/       # Analytics component (feature-toggled)
+│   ├── components/           # Reusable UI components
+│   │   ├── feature-card/     # Feature card with toggleable designs
+│   │   └── versioned-button/ # Button with versioning support
+│   ├── pages/                # Feature pages
+│   │   ├── dashboard/        # Dashboard page
+│   │   ├── settings/         # Settings page (feature-toggled)
+│   │   ├── reports/          # Reports page (feature-toggled)
+│   │   ├── analytics/        # Analytics page (feature-toggled)
+│   │   └── components/       # Component demo page (component-toggle)
 │   ├── core/
-│   │   ├── guards/          # Route guards
+│   │   ├── guards/           # Route guards
 │   │   │   └── feature-toggle.guard.ts
 │   │   └── services/
 │   │       └── feature-toggle.service.ts
-│   ├── shared/
-│   │   └── directives/
-│   │       └── feature-toggle.directive.ts
-│   ├── app.routes.ts        # Application routes with feature guards
-│   └── app.ts               # Root component
+│   ├── app.routes.ts         # Application routes with feature guards
+│   └── app.html              # Root template
 ├── environments/
-│   ├── environment.ts       # Development feature flags
-│   └── environment.prod.ts  # Production feature flags
-└── assets/                  # Static assets
+│   ├── environment.ts        # Development feature flags
+│   └── environment.prod.ts   # Production feature flags
+└── assets/                   # Static assets
 ```
 
 ## Prerequisites
@@ -48,6 +50,35 @@ src/
    ```bash
    npm install
    ```
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+   The application will be available at `http://localhost:4200`
+
+## Configuration
+
+Feature toggles are configured in the environment files:
+- `src/environments/environment.ts` - Development configuration
+- `src/environments/environment.prod.ts` - Production configuration
+
+Example configuration:
+```typescript
+export const environment = {
+  production: false,
+  features: {
+    dashboard: true,
+    settings: true,
+    reports: true,
+    analytics: false,
+    componentToggleDemo: true
+  },
+  components: {
+    newCardDesign: true,
+    newButtonDesign: false
+  }
+};
+```
 
 ## Development Server
 
