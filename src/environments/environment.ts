@@ -11,4 +11,8 @@ export const environment = {
     newCardDesign: true,
     newButtonDesign: false,
   },
+  services: {
+    authService: true,
+    userService: false,
+  }
 };
